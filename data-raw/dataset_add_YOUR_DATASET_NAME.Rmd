@@ -1,0 +1,49 @@
+---
+title: "Create Datafile"
+author: "Aaron Schroeder"
+date: "11/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# NAME OF DATASET YOU ARE ADDING 
+
+## Get dataset DOI
+
+```{r}
+dataset_doi <- readLines(here::here("data/dataset_doi"))[1]
+```
+
+## Code you used to create dataset
+
+```{r data}
+dat_file_name <- "YOUR_DATA_FILE_NAME"
+
+source(here::here("data-raw/YOUR_CODE_FILE_NAME"))
+
+assign(dat_file_name, YOUR_VAR_NAME_CONTAINING_DATASET)
+```
+
+## Write to compressed file
+
+```{r compress}
+dat_file_path <- here::here(paste0("data/", dat_file_name, ".csv.xz"))
+
+readr::write_csv(get(dat_file_name),
+                 xzfile(dat_file_path, compression = 9))
+```
+
+## Upload Files to Dataverse Dataset
+
+```{r upload}
+dataverse::add_dataset_file(
+  file = dat_file_path,
+  dataset = dataset_doi,
+  key = Sys.getenv("DATAVERSE_KEY"),
+  server   = Sys.getenv("DATAVERSE_SERVER"),
+  description = dat_file_name
+)
+```
