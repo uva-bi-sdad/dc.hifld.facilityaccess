@@ -1,0 +1,131 @@
+{
+  "datasetVersion": {
+    "metadataBlocks": {
+      "citation": {
+        "fields": [
+          {
+            "value": "Social Data Commons: Education & Training: Virginia SOL Scores",
+            "typeClass": "primitive",
+            "multiple": false,
+            "typeName": "title"
+          },
+          {
+            "typeName": "productionDate",
+            "multiple": false,
+            "typeClass": "primitive",
+            "value": "2021-11-17"
+          },
+          {
+            "value": [
+              {
+                "authorName": {
+                  "value": "Schroeder, Aaron",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorName"
+                },
+                "authorAffiliation": {
+                  "value": "University of Virginia",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorAffiliation"
+                }
+              },
+              {
+                "authorName": {
+                  "value": "",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorName"
+                },
+                "authorAffiliation": {
+                  "value": "",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorAffiliation"
+                }
+              }
+              ],
+            "typeClass": "compound",
+            "multiple": true,
+            "typeName": "author"
+          },
+          {
+            "value": [
+              { "datasetContactEmail" : {
+                "typeClass": "primitive",
+                "multiple": false,
+                "typeName": "datasetContactEmail",
+                "value" : "ads7fg@virginia.edu"
+              },
+                "datasetContactName" : {
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "datasetContactName",
+                  "value": "Schroeder, Aaron"
+                }
+              }],
+            "typeClass": "compound",
+            "multiple": true,
+            "typeName": "datasetContact"
+          },
+          {
+            "value": [ {
+              "dsDescriptionValue":{
+                "value":   "Virginia Standards of Learning Test Scores collected by the Virginia Department of Education (VDOE)",
+                "multiple":false,
+                "typeClass": "primitive",
+                "typeName": "dsDescriptionValue"
+              }}],
+            "typeClass": "compound",
+            "multiple": true,
+            "typeName": "dsDescription"
+          },
+          {
+            "value": [
+              "Social Sciences (Ex: Education, Politics, Sociology, Economics, Psychology)"
+              ],
+            "typeClass": "controlledVocabulary",
+            "multiple": true,
+            "typeName": "subject"
+          }
+          ],
+        "displayName": "Citation Metadata"
+      },
+      "geospatial": {
+        "displayName": "Geospatial Metadata",
+        "fields": [
+          {
+            "typeName": "geographicCoverage",
+            "multiple": true,
+            "typeClass": "compound",
+            "value": [
+              {
+                "country": {
+                  "typeName": "country",
+                  "multiple": false,
+                  "typeClass": "controlledVocabulary",
+                  "value": "United States"
+                },
+                "state": {
+                  "typeName": "state",
+                  "multiple": false,
+                  "typeClass": "primitive",
+                  "value": "Virginia"
+                }
+              }
+              ]
+          },
+          {
+            "typeName": "geographicUnit",
+            "multiple": true,
+            "typeClass": "primitive",
+            "value": [
+              "State Health District",
+              "County"
+              ]
+          }
+          ]}
+    }
+  }
+}

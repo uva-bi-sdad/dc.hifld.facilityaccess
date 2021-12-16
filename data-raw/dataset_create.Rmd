@@ -5,23 +5,20 @@ date: "11/18/2021"
 output: html_document
 dataset:
   citation:
-      title: "Social Data Commons: Education & Training: Virginia SOL Scores"
+      title: "Social Data Commons: Health, Behavior, Diet: HIFLD Facility Access"
       subtitle: ""
-      dsDescriptionValue: "Virginia Standards of Learning Test Scores collected by the Virginia Department of Education (VDOE)"
-      dsDescriptionDate: "2021-11-17"
-      timePeriodCoveredStart: "2015-01-01"
-      timePeriodCoveredEnd: "2021-01-01"
+      dsDescriptionValue: "Access to Homeland Infrastructure Foundation-Level Data HIFLD Facilities (Mental health, substance abuse, hospital, and EMS"
+      dsDescriptionDate: "2021-12-15"
+      timePeriodCoveredStart: "2021-01-01"
+      timePeriodCoveredEnd: "2021-12-31"
       dateofCollectionStart: "2021-10-31"
       dataSources:
-        - "ACS"
-        - "County Health Rankings"
+        - "HIFLD"
       author:
         - authorName: "Schroeder, Aaron"
           authorAffiliation: "Univeristy of Virginia"
-        - authorName: "Charankevich, Hanna"
+        - authorName: "Montalvo, Cesar"
           authorAffiliation: "Univeristy of Virginia"
-        - authorName: "Niagra, Bob"
-          authorAffiliation: "Univeristy of Waterloo"
       datasetContact:
         - datasetContactEmail: "ads7fg@virginia.edu"
           datasetContactName: "Schroeder, Aaron"
@@ -32,6 +29,7 @@ dataset:
     geographicUnit:
       - "State Health District"
       - "County"
+      - "Tract"
 ---
 
 ```{r setup, include=FALSE}
@@ -208,7 +206,7 @@ dataset_metadata$datasetVersion$metadataBlocks$geospatial$fields[[2]]$value <- g
 # Create or update dataverse dataset
 
 ```{r}
-if (exists("data/dataset_doi")) {
+if (file.exists(here::here("data/dataset_doi"))) {
   dataset_doi <- readLines(here::here("data/dataset_doi"))[1]
  
   if (is.na(dataset_doi)) {
@@ -223,6 +221,7 @@ if (exists("data/dataset_doi")) {
     ## Save dataset DOI to data
     writeLines(ds_info$data$persistentId, here::here("data/dataset_doi"))
   } else {
+    print("hey")
     dataverse::update_dataset(
       dataset = dataset_doi,
       body = dataset_metadata,
